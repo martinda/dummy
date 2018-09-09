@@ -2,15 +2,19 @@ agent: any
 
 stages:
     - name: First
-      scripts:
-        -   ./scripts/hello
+      agent: any
+      steps:
+        - sh: ./scripts/hello.sh
     - name: Build
-      scripts:
-        -   ./scripts/build
+      agent: any
+      steps:
+        - sh: ./scripts/build.sh
     - name: Tests
-      scripts:
-        -   ./scripts/test
+      agent: any
+      steps:
+        - sh: ./scripts/test.sh
 
-archiveArtifacts:
-    - Jenkinsfile.yaml
-    - scripts/hello.sh
+configuration:
+    archiveArtifacts:
+        - Jenkinsfile.yaml
+        - scripts/hello.sh
