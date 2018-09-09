@@ -1,10 +1,5 @@
 agent: any
 
-testResultPaths:
-    - target/surefire-reports/*.xml
-
-findBugs: target/*.xml
-
 stages:
     - name: First
       scripts:
@@ -19,9 +14,3 @@ stages:
 archiveArtifacts:
     - Jenkinsfile.yaml
     - scripts/hello.sh
-
-publishArtifacts:
-    - from: Jenkinsfile.yaml
-      to: ~/archives
-    - from: scripts/hello.sh
-      to: ~/archives
